@@ -16,5 +16,10 @@ public class TestScenarios extends BaseClass {
     public void searchTest(){
         HomePage homePage = new HomePage(driver);
         homePage.search_Book();
+        boolean flag = false;
+        if(homePage.actual_Book_Title.toLowerCase().contains("harry potter")){
+             flag = true;
+        }
+        Assert.assertTrue(flag);
     }
 }
