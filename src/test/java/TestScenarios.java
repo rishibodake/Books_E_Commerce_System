@@ -25,7 +25,7 @@ public class TestScenarios extends BaseClass {
     }
 
     @Test(priority = 3)
-    public void bookBuy(){
+    public void bookBuy() throws InterruptedException {
         SearchResultPage searchResult = new SearchResultPage(driver);
         searchResult.buyBook();
     }

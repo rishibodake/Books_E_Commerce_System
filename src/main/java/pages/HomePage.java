@@ -20,8 +20,6 @@ public class HomePage {
     @FindBy(id = "ctl00_TopSearch1_Button1")
     WebElement searchButton;
 
-
-
     public void search_Book(){
         searchBar.sendKeys("Harry Potter");
         searchButton.click();
