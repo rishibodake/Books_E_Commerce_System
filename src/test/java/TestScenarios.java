@@ -41,5 +41,6 @@ public class TestScenarios extends BaseClass {
     public void logout() throws InterruptedException {
         FinalView_Page finalView = new FinalView_Page(driver);
         finalView.logOut();
+        Assert.assertTrue(finalView.flag);
     }
 }
