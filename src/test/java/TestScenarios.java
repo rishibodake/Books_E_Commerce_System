@@ -1,9 +1,6 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.CheckOutCart_Page;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.SearchResultPage;
+import pages.*;
 
 public class TestScenarios extends BaseClass {
     @Test(priority = 1)
@@ -36,5 +33,11 @@ public class TestScenarios extends BaseClass {
         CheckOutCart_Page checkOutCart_page = new CheckOutCart_Page(driver);
         checkOutCart_page.fillTheAddress();
         Assert.assertTrue(checkOutCart_page.flag);
+    }
+
+    @Test(priority = 5)
+    public void giftMessage() throws InterruptedException {
+        GiftMessage_Page giftMessage_page = new GiftMessage_Page(driver);
+        giftMessage_page.giftMessage();
     }
 }
