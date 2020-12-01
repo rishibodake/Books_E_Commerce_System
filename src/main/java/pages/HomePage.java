@@ -1,7 +1,9 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
     public WebDriver driver;
@@ -9,15 +11,20 @@ public class HomePage {
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver,this);
     }
 
-    By searchBar = By.id("ctl00_TopSearch1_txtSearch");
-    By searchButton = By.id("ctl00_TopSearch1_Button1");
-    By itemName = By.id("ctl00_phBody_ProductDetail_lblTitle");
+    @FindBy(id = "ctl00_TopSearch1_txtSearch")
+    WebElement searchBar;
+
+    @FindBy(id = "ctl00_TopSearch1_Button1")
+    WebElement searchButton;
+
+
 
     public void search_Book(){
-        driver.findElement(searchBar).sendKeys("Harry Potter");
-        driver.findElement(searchButton).click();
+        searchBar.sendKeys("Harry Potter");
+        searchButton.click();
         actual_Book_Title = driver.getTitle();
     }
 }
