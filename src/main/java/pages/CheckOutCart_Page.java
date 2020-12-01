@@ -7,12 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CheckOutCart_Page {
     WebDriver driver;
+    public boolean flag = false;
 
     public CheckOutCart_Page(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
-    @FindBy(xpath = "//a[@class='btn-red']")
+    @FindBy(xpath = "//a[@href='shippingoption.aspx']")
     WebElement continueButton;
 
     //Shipping Address
@@ -43,7 +44,11 @@ public class CheckOutCart_Page {
     @FindBy(id = "ctl00_cpBody_imgSaveNew")
     WebElement saveAndContinue;
 
+    @FindBy(xpath = "//h3[contains(text(),'Review your Order ')]")
+    WebElement verification;
+
     public void fillTheAddress() throws InterruptedException {
+        Thread.sleep(2000);
         continueButton.click();
         Thread.sleep(2000);
         name.sendKeys("Rishikesh");
@@ -54,5 +59,10 @@ public class CheckOutCart_Page {
         pinCode.sendKeys("415311");
         mobile.sendKeys("2525252525");
         saveAndContinue.click();
+        Thread.sleep(3000);
+        if(verification.toString().contains("Review your Order ") ){
+            flag = true;
+        }
+
     }
 }
