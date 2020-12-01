@@ -2,6 +2,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
     WebDriver driver;
@@ -9,16 +12,22 @@ public class LoginPage {
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver,this);
     }
-    public By email = By.id("ctl00_phBody_SignIn_txtEmail");
-    public By password = By.id("ctl00_phBody_SignIn_txtPassword");
-    public By login_button = By.id("ctl00_phBody_SignIn_btnLogin");
+    @FindBy(id = "ctl00_phBody_SignIn_txtEmail")
+    WebElement email;
+
+    @FindBy(id = "ctl00_phBody_SignIn_txtPassword")
+    WebElement password;
+
+    @FindBy(id = "ctl00_phBody_SignIn_btnLogin")
+    WebElement login_button;
 
 
     public void login(){
-        driver.findElement(email).sendKeys("rishibodake20@gmail.com");
-        driver.findElement(password).sendKeys("jocky1234#");
-        driver.findElement(login_button).click();
+        email.sendKeys("rishibodake20@gmail.com");
+        password.sendKeys("jocky1234#");
+        login_button.click();
         actual_pageTitle = driver.getTitle();
     }
 }

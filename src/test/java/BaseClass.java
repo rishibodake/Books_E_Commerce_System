@@ -9,14 +9,14 @@ public class BaseClass {
     @BeforeClass
     public void initialise(){
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-notifications","start-maximized");
+        options.addArguments("--disable-notifications","start-maximized","incognito");
         System.setProperty("webdriver.chrome.driver","chromedriver.exe");
         driver = new ChromeDriver(options);
         driver.get("https://www.bookswagon.com/login");
     }
 
     @AfterClass
-    public void closeup() throws InterruptedException {
+    public void closeUp() throws InterruptedException {
         Thread.sleep(5000);
         driver.quit();
     }

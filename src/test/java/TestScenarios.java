@@ -2,6 +2,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.SearchResultPage;
 
 public class TestScenarios extends BaseClass {
     @Test(priority = 1)
@@ -21,5 +22,11 @@ public class TestScenarios extends BaseClass {
              flag = true;
         }
         Assert.assertTrue(flag);
+    }
+
+    @Test(priority = 3)
+    public void bookBuy(){
+        SearchResultPage searchResult = new SearchResultPage(driver);
+        searchResult.buyBook();
     }
 }
