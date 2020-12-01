@@ -1,4 +1,3 @@
-import org.checkerframework.checker.units.qual.A;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
@@ -41,5 +40,11 @@ public class TestScenarios extends BaseClass {
         GiftMessage_Page giftMessage_page = new GiftMessage_Page(driver);
         giftMessage_page.giftMessage();
         Assert.assertTrue(giftMessage_page.flag);
+    }
+
+    @Test(priority = 6)
+    public void logout() throws InterruptedException {
+        FinalView_Page finalView = new FinalView_Page(driver);
+        finalView.logOut();
     }
 }
