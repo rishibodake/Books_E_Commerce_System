@@ -5,10 +5,9 @@ import pages.*;
 public class TestScenarios extends BaseClass {
     @Test(priority = 1)
     public void loginTest(){
-        String expected_titleString = "Online BookStore India, Buy Books Online, Buy Book Online India - Bookswagon.com";
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login();
-        Assert.assertEquals(loginPage.actual_pageTitle,expected_titleString);
+        Assert.assertTrue(loginPage.flag);
     }
 
     @Test(priority = 2)
