@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
     public WebDriver driver;
-    public String actual_Book_Title;
+    public boolean flag;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -20,9 +20,14 @@ public class HomePage {
     @FindBy(id = "ctl00_TopSearch1_Button1")
     WebElement searchButton;
 
+    @FindBy(xpath = "//span[contains(text(),'harry potter')]")
+    WebElement verification;
+
     public void search_Book(){
         searchBar.sendKeys("Harry Potter");
         searchButton.click();
-        actual_Book_Title = driver.getTitle();
+       if(verification.toString().contains("harry potter")){
+           flag = true;
+       }
     }
 }
