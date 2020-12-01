@@ -42,4 +42,17 @@ public class CheckOutCart_Page {
 
     @FindBy(id = "ctl00_cpBody_imgSaveNew")
     WebElement saveAndContinue;
+
+    public void fillTheAddress() throws InterruptedException {
+        continueButton.click();
+        Thread.sleep(2000);
+        name.sendKeys("Rishikesh");
+        streetAddress.sendKeys("Karad Road");
+        state.click();
+        MH.click();
+        city.sendKeys("Vita");
+        pinCode.sendKeys("415311");
+        mobile.sendKeys("2525252525");
+        saveAndContinue.click();
+    }
 }
